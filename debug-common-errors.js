@@ -24,26 +24,30 @@ Think about which debugging methods you found most useful and how you might appl
 // Description:
 // This program is intended to display a simple prompt in the console but fails to run.
 
-console.log("Welcome to the bootcamp
+console.log("Welcome to the bootcamp");
 
-// What’s Wrong?
+// What’s Wrong? Syntax Error.
+// issue: The closing quotation mark(") is missing.
+// Fix: Add the missing closing quotation mark and parentheses.
 
 
 // Program B
 // Description:
 // This code attempts to multiply each number in an array by 2 and display the results. However, it crashes at runtime.
 
-let numbers = [2, 4, "eight"];
+let numbers = [2, 4, 8];
 for (let i = 0; i < numbers.length; i++) {
   let doubled = numbers[i] * 2;
   console.log(doubled);
 }
 
-// What’s Wrong?
+// What’s Wrong? Runtime Error
+// issue: "eight" is string, so numbers[i]*2 causes an error.
+// Fix: Use only numbers in the array and remove string.
 
 
 
-// Program C (Logic Error)
+// Program C 
 // Description:
 // This snippet of code is supposed to check if a given number is prime (i.e., divisible only by 1 and itself). However, it incorrectly marks some numbers as prime or not prime.
 
@@ -51,12 +55,15 @@ function isPrime(num) {
   if (num < 2) return false;
   for (let i = 2; i < num; i++) {
     if (num % i === 0) {
-      return true;  // Supposed to indicate num is NOT prime
+      return false;  // Supposed to indicate num is NOT prime
     }
   }
-  return false; // Supposed to indicate num IS prime
+  return true; // Supposed to indicate num IS prime
 }
 
 console.log(isPrime(7)); // Expected true but gets false
 
-// What’s Wrong?
+// What’s Wrong? (Logic Error)
+// issue: The function incorrectly marks non-prime numbers as prime. It returns true if number is divisible by any i instead of returning false.
+// the final return should be true, because if no divisors are found the number is prime.
+// Fix: Return false when divisor is found, and return true at the end.
